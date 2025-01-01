@@ -71,13 +71,14 @@ admin.site.register(AnnualChallan, AnnualChallanAdmin)
 
 # Register AnnualDuesStatus model
 class AnnualDuesStatusAdmin(admin.ModelAdmin):
-    list_display = ('st_id', 'Year', 'pais')
-    search_fields = ('st_id', 'Year')
+    list_display = ('st_id', 'Year', 'paymentStatus')
+    search_fields = ('st_id', 'Year','paymentStatus')
 
 admin.site.register(AnnualDuesStatus, AnnualDuesStatusAdmin)
 
 # Register MonthlyMealConsumption model
 class MonthlyMealConsumptionAdmin(admin.ModelAdmin):
+    readonly_fields = ('charges',)
     list_display = ('st_id', 'month', 'year', 'daysConsumed', 'charges')
     search_fields = ('st_id', 'month', 'year')
 
