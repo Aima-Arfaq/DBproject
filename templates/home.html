@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Hostel Management System</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="{% url 'view_students' %}">View Students</a>
+
+            <a href="{% url 'view_staff' %}" class="button">View Staff</a>
+            <a href="#">Add Visitor</a>
+            <a href="#">View Rooms</a>
+            <a href="#">Hostel Menu</a>
+            <a href="#">Annual Dues Status</a>
+            <a href="#">Monthly Dues Status</a>
+            <a href="#">Generate Annual Challan</a>
+            <a href="#">Generate Monthly Challan</a>
+        </nav>
+    </div>
+
+</body>
+</html>

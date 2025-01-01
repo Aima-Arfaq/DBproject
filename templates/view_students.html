@@ -1,0 +1,43 @@
+<!-- templates/view_students.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Students</title>
+    <!-- Link to Static CSS -->
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+</head>
+<body>
+    
+    <h1>Student Data</h1>
+
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+                <th>Room ID</th>
+                <th>Contact Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.st_id }}</td>
+                    <td>{{ student.firstName }}</td>
+                    <td>{{ student.lastName }}</td>
+                    <td>{{ student.dept_name }}</td>
+                    <td>{{ student.room_id }}</td>
+                    <td>{{ student.st_contactNumber }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

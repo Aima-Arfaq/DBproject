@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Staff</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: black;
+            color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #444;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #555;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Staff List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for staff in staff_data %}
+                <tr>
+                    <td>{{ staff.id }}</td>
+                    <td>{{ staff.first_name }}</td>
+                    <td>{{ staff.last_name }}</td>
+                    <td>{{ staff.contact }}</td>
+                    <td>{{ staff.email }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No staff data available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/home/" class="button">Back to Home</a>
+</div>
+
+</body>
+</html>
