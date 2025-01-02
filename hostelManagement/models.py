@@ -201,17 +201,38 @@ class AnnualChallan(models.Model):
 
 # Annual Dues Status Model
 class AnnualDuesStatus(models.Model):
+    PAYMENT_STATUS_CHOICES = [
+        ('paid', 'Paid'),
+        ('unpaid', 'Unpaid'),
+    ]
+    
     st_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     Year = models.PositiveIntegerField()
-    pais = models.DecimalField(max_digits=10, decimal_places=2)
+    paymentStatus = models.CharField(max_length=10, choices=PAYMENT_STATUS_CHOICES, default='unpaid')
     
     def __str__(self):
-        return f"Dues Status for Student {self.st_id.st_id} in Year {self.Year}"
+        return f"Dues Status for Student {self.st_id.st_id} in Year {self.Year}: {self.paymentStatus.capitalize()}"
+
 
 # Monthly Meal Consumption Model
 class MonthlyMealConsumption(models.Model):
+    MONTH_CHOICES = [
+        ('January', 'January'),
+        ('February', 'February'),
+        ('March', 'March'),
+        ('April', 'April'),
+        ('May', 'May'),
+        ('June', 'June'),
+        ('July', 'July'),
+        ('August', 'August'),
+        ('September', 'September'),
+        ('October', 'October'),
+        ('November', 'November'),
+        ('December', 'December'),
+    ]
+    
     st_id = models.ForeignKey(Student, on_delete=models.CASCADE)
-    month = models.PositiveIntegerField()
+    month = models.CharField(max_length=10, choices=MONTH_CHOICES)
     year = models.PositiveIntegerField()
     daysConsumed = models.PositiveIntegerField()
     perDayCharges = models.DecimalField(max_digits=10, decimal_places=2)
@@ -226,7 +247,8 @@ class MonthlyMealConsumption(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f"Meal Consumption for Student {self.st_id.st_id} in {self.month}/{self.year}"
+        return f"Meal Consumption for Student {self.st_id.st_id} in {self.month} {self.year}"
+
 
 # Monthly Dues Status Model
 class MonthlyDuesStatus(models.Model):
