@@ -273,8 +273,8 @@ class MonthlyDuesStatus(models.Model):
     
     st_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     year = models.PositiveIntegerField()
-    month = models.CharField(max_length=10, choices=MONTH_CHOICES, )
-    payment_status = models.CharField(max_length=7, choices=PAYMENT_STATUS_CHOICES, default='unpaid' )
+    month = models.CharField(max_length=10, choices=MONTH_CHOICES,  )
+    payment_status = models.CharField(max_length=7, choices=PAYMENT_STATUS_CHOICES, default = 'unpaid')
     
     def __str__(self):
         return f"Monthly Dues Status for Student {self.st_id.st_id} in {self.month}/{self.year} - Status: {self.payment_status}"
